@@ -50,3 +50,15 @@ Think "established regional commercial contractor": confident, clean, trustworth
 
 ## Blind rule
 Build independently. **Don't look at, search for, or copy any other version of this site** (other folders, repos, or deployed URLs of other builders). Only the real site bluegrassdoor.com may be consulted for reference.
+
+## Responsiveness & quality bar (added requirement, mandatory)
+- The site must be **fully responsive and work on every viewing platform**: phone (360–430px), tablet (768–1024px), and desktop (1280–1920px), in **portrait and landscape**, and in **Chromium, WebKit (Safari), and Firefox**.
+- No horizontal scroll at any width (`document.documentElement.scrollWidth <= window.innerWidth`). Watch for off-canvas menus that use `translateX(100%)`, wide tables, long emails/URLs, and fixed-width elements. No overlapping or cut-off elements (e.g. floating chat button over CTAs or the sticky call bar).
+- A working hamburger menu on small screens and the full nav on desktop. The menu opens and closes (toggle, link tap, Esc).
+- Readable text (16px+ body) and tappable targets of at least 44×44px.
+- **Every actionable item must work:** every nav link/anchor scrolls to an existing section id, there are no broken internal links, `tel:` links use `+12707803235` and `mailto:` links use `sonya@bluegrassdoor.com`, and every button does something visible.
+- The door builder can be walked through every step to its summary, and the summary pre-fills the quote form.
+- Quote/contact forms validate required fields and show a success state (and/or open a correct `mailto:`).
+- The chat opens, answers canned questions (at least hours, services, quote), and closes.
+- Every image loads. No console errors and no 404 requests.
+- An automated Playwright smoke test will check all of the above on 3 browsers × 3 viewports (390×844, 820×1180, 1440×900).
