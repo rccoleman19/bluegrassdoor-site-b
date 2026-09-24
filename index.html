@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bluegrass Commercial Door & More — Demo Twin</title>
+  <meta name="description" content="Demo twin concept for Bluegrass Commercial Door & More. Same local shop, smarter workflow for door quotes and office triage.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-ribbon" role="note">
+    Demo Twin (Entry B) — This is not the live Bluegrass website.
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div>
+        <p class="eyebrow">Bluegrass Commercial Door & More</p>
+        <h1>Same shop. Smarter workflow.</h1>
+        <p class="lede">
+          Family-owned in Bowling Green, KY with commercial and residential door work, plus frames, hardware,
+          partitions, accessories, and flagpoles.
+        </p>
+      </div>
+      <div class="look-switcher" aria-label="Theme look toggle">
+        <p class="switcher-label">Choose a Look</p>
+        <div class="look-buttons">
+          <button type="button" class="look-btn" data-theme-target="classic" aria-pressed="true">Classic</button>
+          <button type="button" class="look-btn" data-theme-target="steel" aria-pressed="false">Steel</button>
+          <button type="button" class="look-btn" data-theme-target="workshop" aria-pressed="false">Workshop</button>
+        </div>
+      </div>
+    </div>
+    <div class="container quick-links">
+      <a href="#builder">Door Builder</a>
+      <a href="#assistant">Shop Assistant</a>
+      <a href="#quote">2-Minute Quote Path</a>
+      <a href="#triage">AI Email Triage</a>
+      <a href="#teasers">Local Service Teasers</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel container">
+      <div class="panel-grid">
+        <article>
+          <h2>Built for the office, not to replace the crew</h2>
+          <p>
+            This demo keeps the same local voice while helping the office sort requests faster after hours.
+            Every automated suggestion has a clear handoff back to a real person.
+          </p>
+          <ul class="checklist">
+            <li>Structured intake so fewer details get missed</li>
+            <li>Clear path from rough request to quote-ready notes</li>
+            <li>Shop voice draft replies that are reviewed before sending</li>
+          </ul>
+        </article>
+        <aside class="contact-card">
+          <h3>Live business contact details (public)</h3>
+          <p><strong>Phone:</strong> <a href="tel:+12707803235">270-780-3235</a></p>
+          <p><strong>Email:</strong> <a href="mailto:sonya@bluegrassdoor.com">sonya@bluegrassdoor.com</a></p>
+          <p><strong>Address:</strong> 930 Gordon Avenue, Bowling Green, KY 42101</p>
+          <p class="small-note">
+            Contact details above are public facts from bluegrassdoor.com and shown here for demo purposes.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="builder" class="container section">
+      <div class="section-title-wrap">
+        <p class="eyebrow">Guided Door Builder</p>
+        <h2>Build a shortlist before asking for a quote</h2>
+      </div>
+      <form id="builderForm" class="card form-grid">
+        <label>
+          Project type
+          <select name="projectType" required>
+            <option value="">Select one</option>
+            <option>Commercial remodel</option>
+            <option>New construction</option>
+            <option>Residential replacement</option>
+            <option>Service call / damaged opening</option>
+          </select>
+        </label>
+        <label>
+          Opening type
+          <select name="openingType" required>
+            <option value="">Select one</option>
+            <option>Storefront entrance</option>
+            <option>Hollow metal swinging door</option>
+            <option>Fire-rated opening</option>
+            <option>Security door / reinforced opening</option>
+            <option>Safe room opening</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Performance priorities</legend>
+          <div class="checkbox-stack">
+            <label><input type="checkbox" name="performance" value="Fire rating"> Fire rating</label>
+            <label><input type="checkbox" name="performance" value="Security"> Security</label>
+            <label><input type="checkbox" name="performance" value="Heavy daily traffic"> Heavy daily traffic</label>
+            <label><input type="checkbox" name="performance" value="Weather exposure"> Weather exposure</label>
+          </div>
+        </fieldset>
+        <label>
+          Scope
+          <select name="scope" required>
+            <option value="">Select one</option>
+            <option>Door only</option>
+            <option>Door + frame + hardware</option>
+            <option>Full entrance system with glass</option>
+            <option>Need field measurement first</option>
+          </select>
+        </label>
+        <label class="full">
+          Notes from site visit (or what you already know)
+          <textarea name="notes" rows="4" placeholder="Example: Existing frame is staying. Need panic hardware and closer."></textarea>
+        </label>
+        <div class="full action-row">
+          <button type="submit" class="btn-primary">Build my shortlist</button>
+          <a href="#quote" class="btn-secondary">Skip to quote path</a>
+        </div>
+      </form>
+      <article id="builderResult" class="card result-card hidden" aria-live="polite">
+        <h3>Quote-ready intake summary</h3>
+        <p class="small-note">No pricing or lead times are shown in this demo.</p>
+        <ul id="builderSummary"></ul>
+      </article>
+    </section>
+
+    <section id="assistant" class="container section">
+      <div class="section-title-wrap">
+        <p class="eyebrow">Shop AI Assistant (Demo Replies)</p>
+        <h2>Local tone answers with human handoff</h2>
+      </div>
+      <div class="assistant card">
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <div class="suggestion-row">
+          <button type="button" class="chip" data-prompt="Do you handle fire-rated openings?">Fire-rated opening question</button>
+          <button type="button" class="chip" data-prompt="Can you replace a residential door and hardware?">Residential replacement question</button>
+          <button type="button" class="chip" data-prompt="I need a quote for a storefront entrance in Warren County.">Commercial quote question</button>
+        </div>
+        <form id="assistantForm" class="chat-form">
+          <label for="assistantInput" class="sr-only">Ask the demo assistant</label>
+          <input id="assistantInput" name="assistantInput" type="text" placeholder="Ask about openings, hardware, service area, or quote prep." required>
+          <button type="submit" class="btn-primary">Ask</button>
+        </form>
+        <p class="small-note">Demo responses only. Final scheduling and pricing are always handled by the Bluegrass team.</p>
+      </div>
+    </section>
+
+    <section id="quote" class="container section">
+      <div class="section-title-wrap">
+        <p class="eyebrow">After-hours Quote Path</p>
+        <h2>Simple intake that feels like a 2-minute form</h2>
+      </div>
+      <form id="quoteForm" class="card form-grid">
+        <label>
+          Your name
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Best phone
+          <input type="tel" name="phone" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Job location
+          <input type="text" name="location" placeholder="Bowling Green / Warren County / nearby" required>
+        </label>
+        <label>
+          Needed service
+          <select name="service" required>
+            <option value="">Select one</option>
+            <option>Commercial entrance</option>
+            <option>Fire-rated opening</option>
+            <option>Residential door replacement</option>
+            <option>Flagpole install or repair</option>
+            <option>Hardware or partitions</option>
+          </select>
+        </label>
+        <label>
+          Preferred follow-up
+          <select name="followup" required>
+            <option value="">Select one</option>
+            <option>Call me</option>
+            <option>Email me</option>
+            <option>Either is fine</option>
+          </select>
+        </label>
+        <label class="full">
+          Quick job notes
+          <textarea name="details" rows="4" placeholder="Tell us what opening you have and what issue or scope you need."></textarea>
+        </label>
+        <div class="full action-row">
+          <button type="submit" class="btn-primary">Send demo intake</button>
+        </div>
+      </form>
+      <article id="quoteSuccess" class="card success-card hidden" aria-live="polite"></article>
+    </section>
+
+    <section id="triage" class="container section">
+      <div class="section-title-wrap">
+        <p class="eyebrow">AI Email Triage Mock</p>
+        <h2>Sort urgent RFQs, catch incomplete requests, block spam</h2>
+      </div>
+      <div class="triage-grid">
+        <article class="card">
+          <h3>Inbox lanes</h3>
+          <div class="lane">
+            <h4>Hot RFQ</h4>
+            <button type="button" class="mail-item" data-mail-id="rfq1">Storefront replacement at clinic (Warren County)</button>
+            <button type="button" class="mail-item" data-mail-id="rfq2">Fire-rated pair for school renovation</button>
+          </div>
+          <div class="lane">
+            <h4>Incomplete</h4>
+            <button type="button" class="mail-item" data-mail-id="inc1">Need new front door ASAP</button>
+          </div>
+          <div class="lane">
+            <h4>Spam / noise</h4>
+            <button type="button" class="mail-item" data-mail-id="spam1">SEO package guarantee</button>
+          </div>
+        </article>
+        <article class="card preview-card">
+          <h3>Selected email</h3>
+          <div id="mailPreview">
+            <p>Select an inbox item to view triage tags and a draft response in shop voice.</p>
+          </div>
+          <button id="approveDraft" type="button" class="btn-secondary hidden">Approve draft for human review</button>
+          <p id="approveNote" class="small-note"></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="teasers" class="container section">
+      <div class="section-title-wrap">
+        <p class="eyebrow">Local Service Teasers</p>
+        <h2>Built for future location and service pages</h2>
+      </div>
+      <div class="teaser-grid">
+        <article class="card teaser">
+          <h3>Commercial Entrances in Bowling Green</h3>
+          <p>Storefront door systems, glass, and hardware packages with install and replacement support.</p>
+        </article>
+        <article class="card teaser">
+          <h3>Fire-rated Openings for Code Compliance</h3>
+          <p>Openings configured for the right door, frame, and hardware combinations where ratings matter.</p>
+        </article>
+        <article class="card teaser">
+          <h3>Residential Door Replacement</h3>
+          <p>Upgrade old or damaged doors with better fit, operation, and hardware that matches your home.</p>
+        </article>
+        <article class="card teaser">
+          <h3>Flagpole Install and Repair</h3>
+          <p>Commercial and community installations that hold up through weather and daily visibility.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Bluegrass Commercial Door & More — Demo Twin</h3>
+        <p>This concept demonstrates a modern intake and communication flow for the Bluegrass team.</p>
+      </div>
+      <div>
+        <p><strong>Public business details from live site:</strong></p>
+        <p>930 Gordon Avenue, Bowling Green, KY 42101</p>
+        <p>270-780-3235 · sonya@bluegrassdoor.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
