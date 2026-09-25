@@ -298,7 +298,8 @@ h3 { font-size: clamp(1.6rem, 3vw, 2.15rem); }
 .service-card:not(.service-card-solid) .service-card-content p { margin-bottom: 0; font-size: .94rem; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 /* Flagpole photo card: keeps the exact box the former icon card had (phone/tablet height, 2-column span on desktop). */
 .service-card.service-card-flag { min-height: 353.1875px; }
-.service-card-flag img { object-position: 40% 28%; }
+/* Sky-widened frame of the same photo (finial to just below the flag), centred: same look as before on the usual card sizes, and the whole flag stays in view on the wider cards (~480-640px and ~900-1020px screens). */
+.service-card-flag img { object-position: 50% 50%; }
 .line-icon { position: absolute; top: 28px; right: 28px; width: 72px; height: 72px; padding: 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; }
 .line-icon svg { fill: none; stroke: currentColor; stroke-width: 2; }
 
