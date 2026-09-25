@@ -290,6 +290,12 @@ h3 { font-size: clamp(1.6rem, 3vw, 2.15rem); }
 .service-card-solid { min-height: 330px; background: linear-gradient(145deg, var(--navy), #103675); }
 .service-card-solid .service-card-content { position: relative; padding-top: 130px; }
 .service-card-accent { background: linear-gradient(145deg, var(--blue), #0757d0); }
+/* Photo cards: compact text overlay so more of each photo shows (card size unchanged). */
+.service-card:not(.service-card-solid) .service-card-shade { background: linear-gradient(0deg, rgba(1,19,56,.95) 0, rgba(1,19,56,.86) 110px, rgba(2,23,66,.42) 190px, rgba(2,23,66,0) 250px); }
+.service-card:not(.service-card-solid) .service-card-content { padding: 16px 20px 8px; }
+.service-card:not(.service-card-solid) .service-card-content > span { margin-bottom: 4px; font-size: .68rem; }
+.service-card:not(.service-card-solid) .service-card-content h3 { margin-bottom: 4px; font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.service-card:not(.service-card-solid) .service-card-content p { margin-bottom: 0; font-size: .94rem; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .line-icon { position: absolute; top: 28px; right: 28px; width: 72px; height: 72px; padding: 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; }
 .line-icon svg { fill: none; stroke: currentColor; stroke-width: 2; }
 
