@@ -268,7 +268,7 @@
       const subject = "Quote request from " + name + " — " + data.get("projectType");
       const mailto = "mailto:sonya@bluegrassdoor.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(quoteEmailBody(data));
       document.getElementById("send-email-link").href = mailto;
-      document.getElementById("success-title").textContent = "Thanks, " + name + ". We received your request details.";
+      document.getElementById("success-title").textContent = "Thanks, " + name + ". Your request details are ready.";
       quoteForm.hidden = true;
       successPanel.hidden = false;
       successPanel.focus();
